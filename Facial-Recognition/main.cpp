@@ -16,12 +16,8 @@ int main()
     cv::Mat frame;
     cv::VideoCapture capture;
 
+    recognition.load("haarcascade_frontalface_default.xml");
     capture.open(0, cv::CAP_ANY);
-    if (!capture.isOpened())
-    {
-        std::cerr << "ERROR : UNABLE TO OPEN CAMERA\n";
-        return -1;
-    }
 
     while (true)
     {
@@ -34,7 +30,6 @@ int main()
 
         cv::imshow("Facial Recognition", frame);
         cv::waitKey(1);
-
     }
 
     return 0;
